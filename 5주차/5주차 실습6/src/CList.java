@@ -1,17 +1,17 @@
 import java.util.NoSuchElementException;
 
 public class CList <E> {
-	private Node last; // ¸®½ºÆ®ÀÇ ¸¶Áö¸· ³ëµå(Ç×¸ñ)À» °¡¸®Å²´Ù.
-	private int size; // ¸®½ºÆ®ÀÇ Ç×¸ñ(³ëµå) ¼ö
+	private Node last; // ë¦¬ìŠ¤íŠ¸ì˜ ë§ˆì§€ë§‰ ë…¸ë“œ(í•­ëª©)ì„ ê°€ë¦¬í‚¨ë‹¤.
+	private int size; // ë¦¬ìŠ¤íŠ¸ì˜ í•­ëª©(ë…¸ë“œ) ìˆ˜
 	
-	public CList() { // ¸®½ºÆ® »ı¼ºÀÚ
+	public CList() { // ë¦¬ìŠ¤íŠ¸ ìƒì„±ì
 		this.last = null;
 		this.size = 0;
 	}
 	
-	public void insert(int newItem) { // last°¡ °¡¸®Å°´Â ³ëµåÀÇ ´ÙÀ½¿¡ »õ ³ëµå »ğÀÔ
-		Node newNode = new Node(newItem, null); // »õ ³ëµå »ı¼º
-		if (last == null) { // last°¡ ºñ¾úÀ» ¶§ 
+	public void insert(int newItem) { // lastê°€ ê°€ë¦¬í‚¤ëŠ” ë…¸ë“œì˜ ë‹¤ìŒì— ìƒˆ ë…¸ë“œ ì‚½ì…
+		Node newNode = new Node(newItem, null); // ìƒˆ ë…¸ë“œ ìƒì„±
+		if (last == null) { // lastê°€ ë¹„ì—ˆì„ ë•Œ 
 			newNode.setNext(newNode); 
 			last = newNode;
 		} else {
@@ -21,16 +21,16 @@ public class CList <E> {
 		size++;
 	}
 	
-	public Node delete() { // last°¡ °¡¸®Å°´Â ³ëµåÀÇ ´ÙÀ½ ³ëµå¸¦ Á¦°Å
+	public Node delete() { // lastê°€ ê°€ë¦¬í‚¤ëŠ” ë…¸ë“œì˜ ë‹¤ìŒ ë…¸ë“œë¥¼ ì œê±°
 		if (isEmpty()) {
 			throw new NoSuchElementException();
 		}
-		Node x = last.getNext(); // x°¡ ¸®½ºÆ®ÀÇ Ã¹ ³ëµå¸¦ °¡¸®Å´
-		if (x == last) { // ¸®½ºÆ®¿¡ 1°³ÀÇ ³ëµå¸¸ ÀÖ´Â °æ¿ì 
+		Node x = last.getNext(); // xê°€ ë¦¬ìŠ¤íŠ¸ì˜ ì²« ë…¸ë“œë¥¼ ê°€ë¦¬í‚´
+		if (x == last) { // ë¦¬ìŠ¤íŠ¸ì— 1ê°œì˜ ë…¸ë“œë§Œ ìˆëŠ” ê²½ìš° 
 			last = null;
 		} else {
-			last.setNext(x.getNext()); // last°¡ °¡¸®Å°´Â ³ëµåÀÇ ´ÙÀ½ ³ëµå°¡ xÀÇ ´ÙÀ½ ³ëµå°¡ µÇµµ·Ï 
-			x.setNext(null); // xÀÇ next¸¦ null·Î ¸¸µç´Ù.
+			last.setNext(x.getNext()); // lastê°€ ê°€ë¦¬í‚¤ëŠ” ë…¸ë“œì˜ ë‹¤ìŒ ë…¸ë“œê°€ xì˜ ë‹¤ìŒ ë…¸ë“œê°€ ë˜ë„ë¡ 
+			x.setNext(null); // xì˜ nextë¥¼ nullë¡œ ë§Œë“ ë‹¤.
 		}
 		size--;
 		return x;
@@ -50,13 +50,19 @@ public class CList <E> {
 	
 	public void rotateLeft(int n) {
 		for (int i = 0; i < n; i++) {
-			last = last.getNext(); // Çìµå ¿À¸¥ÂÊÀ¸·Î ¹Ğ¾î¹ö¸®±â 
+			last = last.getNext(); // í—¤ë“œ ì˜¤ë¥¸ìª½ìœ¼ë¡œ ë°€ì–´ë²„ë¦¬ê¸° 
 		}
 	}
 	
 	public void rotateRight(int n) {
+		int count = 0;
+		if (n > size) { // ì˜¤ë¥¸ìª½ìœ¼ë¡œ ê°€ëŠ” íšŸìˆ˜ê°€ sizeë³´ë‹¤ í¬ë©´ 
+			count = size - (n - size); // sizeë³´ë‹¤ ì‘ê±°ë‚˜ ê°™ì„ë•Œì²˜ëŸ¼ ë§Œë“¤ì–´ì£¼ê¸°
+		} else {
+			count = size - n;
+		}
 		for (int i = 0; i < size - n; i++) {
-			last = last.getNext(); // ¿ª¼øÀ¸·Î´Â ¸ø°¡´Ï±î È¯ÇüÀÌ¶ó´Â°É ÀÌ¿ëÇØ¼­ »çÀÌÁî¿¡¼­ ÀÌµ¿ÇÏ·Á´Â °ª ¸¸Å­ »©¸é µÊ
+			last = last.getNext(); // ì—­ìˆœìœ¼ë¡œëŠ” ëª»ê°€ë‹ˆê¹Œ í™˜í˜•ì´ë¼ëŠ”ê±¸ ì´ìš©í•´ì„œ ì‚¬ì´ì¦ˆì—ì„œ ì´ë™í•˜ë ¤ëŠ” ê°’ ë§Œí¼ ë¹¼ë©´ ë¨
 		}
 	}
 	
