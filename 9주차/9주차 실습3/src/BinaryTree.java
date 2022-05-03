@@ -21,91 +21,91 @@ public class BinaryTree<Key extends Comparable<Key>> {
 		return this.root == null;
 	}
 
-	public void preorder(Node n) { // ÀüÀ§¼øÈ¸
+	public void preorder(Node n) { // ì „ìœ„ìˆœíšŒ
 		if (n != null) {
-			System.out.print(n.getKey() + " "); // ³ëµå n ¹æ¹®
-			preorder(n.getLeft()); // nÀÇ ¿ŞÂÊ ¼­ºêÆ®¸®¸¦ ¼øÈ¸ÇÏ±â À§ÇØ
-			preorder(n.getRight()); // nÀÇ ¿À¸¥ÂÊ ¼­ºêÆ®¸®¸¦ ¼øÈ¸ÇÏ±â À§ÇØ
+			System.out.print(n.getKey() + " "); // ë…¸ë“œ n ë°©ë¬¸
+			preorder(n.getLeft()); // nì˜ ì™¼ìª½ ì„œë¸ŒíŠ¸ë¦¬ë¥¼ ìˆœíšŒí•˜ê¸° ìœ„í•´
+			preorder(n.getRight()); // nì˜ ì˜¤ë¥¸ìª½ ì„œë¸ŒíŠ¸ë¦¬ë¥¼ ìˆœíšŒí•˜ê¸° ìœ„í•´
 		}
 	}
 
-	public void inorder(Node n) { // ÁßÀ§¼øÈ¸
+	public void inorder(Node n) { // ì¤‘ìœ„ìˆœíšŒ
 		if (n != null) {
-			inorder(n.getLeft()); // nÀÇ ¿ŞÂÊ ¼­ºêÆ®¸®¸¦ ¼øÈ¸ÇÏ±â À§ÇØ
-			System.out.print(n.getKey() + " "); // ³ëµå n ¹æ¹®
-			inorder(n.getRight()); // nÀÇ ¿À¸¥ÂÊ ¼­ºêÆ®¸®¸¦ ¼øÈ¸ÇÏ±â À§ÇØ
+			inorder(n.getLeft()); // nì˜ ì™¼ìª½ ì„œë¸ŒíŠ¸ë¦¬ë¥¼ ìˆœíšŒí•˜ê¸° ìœ„í•´
+			System.out.print(n.getKey() + " "); // ë…¸ë“œ n ë°©ë¬¸
+			inorder(n.getRight()); // nì˜ ì˜¤ë¥¸ìª½ ì„œë¸ŒíŠ¸ë¦¬ë¥¼ ìˆœíšŒí•˜ê¸° ìœ„í•´
 		}
 	}
 
-	public void postorder(Node n) { // ÈÄÀ§¼øÈ¸
+	public void postorder(Node n) { // í›„ìœ„ìˆœíšŒ
 		if (n != null) {
-			postorder(n.getLeft()); // nÀÇ ¿ŞÂÊ ¼­ºêÆ®¸®¸¦ ¼øÈ¸ÇÏ±â À§ÇØ
-			postorder(n.getRight()); // nÀÇ ¿À¸¥ÂÊ ¼­ºêÆ®¸®¸¦ ¼øÈ¸ÇÏ±â À§ÇØ
-			System.out.print(n.getKey() + " "); // ³ëµå n ¹æ¹®
+			postorder(n.getLeft()); // nì˜ ì™¼ìª½ ì„œë¸ŒíŠ¸ë¦¬ë¥¼ ìˆœíšŒí•˜ê¸° ìœ„í•´
+			postorder(n.getRight()); // nì˜ ì˜¤ë¥¸ìª½ ì„œë¸ŒíŠ¸ë¦¬ë¥¼ ìˆœíšŒí•˜ê¸° ìœ„í•´
+			System.out.print(n.getKey() + " "); // ë…¸ë“œ n ë°©ë¬¸
 		}
 	}
 
-	public void levelorder(Node root) { // ·¹º§¼øÈ¸
-		Queue<Node> q = new LinkedList<Node>(); // Å¥ ÀÌ¿ë
+	public void levelorder(Node root) { // ë ˆë²¨ìˆœíšŒ
+		Queue<Node> q = new LinkedList<Node>(); // í ì´ìš©
 		Node t;
-		q.add(root); // ·çÆ® ³ëµå¸¦ Å¥¿¡ »ğÀÔ
+		q.add(root); // ë£¨íŠ¸ ë…¸ë“œë¥¼ íì— ì‚½ì…
 		while (!q.isEmpty()) {
-			t = q.remove(); // Å¥ °¡Àå ¾Õ¿¡ÀÖ´Â ³ëµå Á¦°Å
-			System.out.print(t.getKey() + " "); // Á¦°ÅÇÑ ³ëµå Ãâ·Â(¹æ¹®)
-			if (t.getLeft() != null) { // Á¦°ÅµÈ ¿ŞÂÊ ÀÚ½ÄÀÌ nullÀÌ ¾Æ´Ï¸é
-				q.add(t.getLeft()); // Å¥¿¡ ¿ŞÂÊ ÀÚ½Ä »ğÀÔ
+			t = q.remove(); // í ê°€ì¥ ì•ì—ìˆëŠ” ë…¸ë“œ ì œê±°
+			System.out.print(t.getKey() + " "); // ì œê±°í•œ ë…¸ë“œ ì¶œë ¥(ë°©ë¬¸)
+			if (t.getLeft() != null) { // ì œê±°ëœ ì™¼ìª½ ìì‹ì´ nullì´ ì•„ë‹ˆë©´
+				q.add(t.getLeft()); // íì— ì™¼ìª½ ìì‹ ì‚½ì…
 			}
-			if (t.getRight() != null) { // Á¦°ÅµÈ ¿À¸¥ÂÊ ÀÚ½ÄÀÌ nullÀÌ ¾Æ´Ï¸é
-				q.add(t.getRight()); // Å¥¿¡ ¿À¸¥ÂÊ ÀÚ½Ä »ğÀÔ
+			if (t.getRight() != null) { // ì œê±°ëœ ì˜¤ë¥¸ìª½ ìì‹ì´ nullì´ ì•„ë‹ˆë©´
+				q.add(t.getRight()); // íì— ì˜¤ë¥¸ìª½ ìì‹ ì‚½ì…
 			}
 		}
 	}
 
-	public int size(Node n) { // nÀ» ·çÆ®·Î ÇÏ´Â (¼­ºê)Æ®¸®¿¡ ÀÖ´Â ³ëµå ¼ö
+	public int size(Node n) { // nì„ ë£¨íŠ¸ë¡œ í•˜ëŠ” (ì„œë¸Œ)íŠ¸ë¦¬ì— ìˆëŠ” ë…¸ë“œ ìˆ˜
 		if (n == null) {
-			return 0; // nullÀÌ¸é 0¸®ÅÏ
+			return 0; // nullì´ë©´ 0ë¦¬í„´
 		} else {
 			return (1 + size(n.getLeft()) + size(n.getRight()));
 		}
 	}
 
-	public int height(Node n) { // nÀ» ·çÆ®·Î ÇÏ´Â (¼­ºê)Æ®¸®ÀÇ ³ôÀÌ
+	public int height(Node n) { // nì„ ë£¨íŠ¸ë¡œ í•˜ëŠ” (ì„œë¸Œ)íŠ¸ë¦¬ì˜ ë†’ì´
 		if (n == null) {
-			return 0; // nullÀÌ¸é 0¸®ÅÏ
+			return 0; // nullì´ë©´ 0ë¦¬í„´
 		} else {
 			return (1 + Math.max(height(n.getLeft()), height(n.getRight())));
 		}
 	}
 
-	public static boolean isEqual(Node n, Node m) { // µÎ Æ®¸®ÀÇ µ¿ÀÏ¼º °Ë»ç
-		if (n == null || m == null) { // µÑ Áß ÇÏ³ª¶óµµ nullÀÌ¸é
-			return n == m; // µÑ´Ù nullÀÎÁö È®ÀÎÈÄ nullÀÌ¸é true ¾Æ´Ï¸é false
+	public static boolean isEqual(Node n, Node m) { // ë‘ íŠ¸ë¦¬ì˜ ë™ì¼ì„± ê²€ì‚¬
+		if (n == null || m == null) { // ë‘˜ ì¤‘ í•˜ë‚˜ë¼ë„ nullì´ë©´
+			return n == m; // ë‘˜ë‹¤ nullì¸ì§€ í™•ì¸í›„ nullì´ë©´ true ì•„ë‹ˆë©´ false
 		}
-		if (n.getKey().compareTo(m.getKey()) != 0) { // µÑ´Ù nullÀÌ ¾Æ´Ï¸é item ºñ±³
+		if (n.getKey().compareTo(m.getKey()) != 0) { // ë‘˜ë‹¤ nullì´ ì•„ë‹ˆë©´ item ë¹„êµ
 			return false;
 		}
 		return (isEqual(n.getLeft(), m.getLeft()) && isEqual(n.getRight(), m.getRight()));
-	} // itemÀÌ °°À¸¸é ¿ŞÂÊÀÚ½Ä Àç±ÍÈ£Ãâ and ¿À¸¥ÂÊ ÀÚ½Ä Àç±ÍÈ£Ãâ
+	} // itemì´ ê°™ìœ¼ë©´ ì™¼ìª½ìì‹ ì¬ê·€í˜¸ì¶œ and ì˜¤ë¥¸ìª½ ìì‹ ì¬ê·€í˜¸ì¶œ
 
 	public int[] btree2intarr() {
-		int[] arr = new int[(int) (Math.pow(2, height(this.root)))]; // 0Àº ¾È¾µÅ×´Ï »çÀÌÁî + 1ÀÇ Å©±â·Î ÃÊ±âÈ­
-		Queue<Node> q = new LinkedList<Node>(); // Å¥ ÀÌ¿ë
+		int[] arr = new int[(int) (Math.pow(2, height(this.root)))]; // 0ì€ ì•ˆì“¸í…Œë‹ˆ ì‚¬ì´ì¦ˆ + 1ì˜ í¬ê¸°ë¡œ ì´ˆê¸°í™”
+		Queue<Node> q = new LinkedList<Node>(); // í ì´ìš©
 		Node t;
 		int i = 1;
-		q.add(root); // ·çÆ® ³ëµå¸¦ Å¥¿¡ »ğÀÔ
+		q.add(root); // ë£¨íŠ¸ ë…¸ë“œë¥¼ íì— ì‚½ì…
 		while (!q.isEmpty()) {
-			t = q.remove(); // Å¥ °¡Àå ¾Õ¿¡ÀÖ´Â ³ëµå Á¦°Å
-			arr[i] = (int) t.getKey(); // Á¦°ÅµÈ ³ëµå °ªÀ» ¹è¿­¿¡ Ãß°¡
-			if (t.getLeft() != null) { // Á¦°ÅµÈ ¿ŞÂÊ ÀÚ½ÄÀÌ nullÀÌ ¾Æ´Ï¸é
-				q.add(t.getLeft()); // Å¥¿¡ ¿ŞÂÊ ÀÚ½Ä »ğÀÔ
+			t = q.remove(); // í ê°€ì¥ ì•ì—ìˆëŠ” ë…¸ë“œ ì œê±°
+			arr[i] = (int) t.getKey(); // ì œê±°ëœ ë…¸ë“œ ê°’ì„ ë°°ì—´ì— ì¶”ê°€
+			if (t.getLeft() != null) { // ì œê±°ëœ ì™¼ìª½ ìì‹ì´ nullì´ ì•„ë‹ˆë©´
+				q.add(t.getLeft()); // íì— ì™¼ìª½ ìì‹ ì‚½ì…
 			}
-			if (t.getRight() != null) { // Á¦°ÅµÈ ¿À¸¥ÂÊ ÀÚ½ÄÀÌ nullÀÌ ¾Æ´Ï¸é
-				q.add(t.getRight()); // Å¥¿¡ ¿À¸¥ÂÊ ÀÚ½Ä »ğÀÔ
+			if (t.getRight() != null) { // ì œê±°ëœ ì˜¤ë¥¸ìª½ ìì‹ì´ nullì´ ì•„ë‹ˆë©´
+				q.add(t.getRight()); // íì— ì˜¤ë¥¸ìª½ ìì‹ ì‚½ì…
 			}
-			if (t.getLeft() == null && t.getRight() != null) { // ºÒ¿ÏÀü ÀÌÁø Æ®¸®ÀÇ °æ¿ì 
+			if (t.getLeft() == null && t.getRight() != null) { // ë¶ˆì™„ì „ ì´ì§„ íŠ¸ë¦¬ì˜ ê²½ìš° 
 				q.add(new Node(0, null, null));
 			}
-			i++; // ¹è¿­ ÀÎµ¦½º¹øÈ£ Áõ°¡
+			i++; // ë°°ì—´ ì¸ë±ìŠ¤ë²ˆí˜¸ ì¦ê°€
 		}
 		return arr;
 	}
@@ -117,75 +117,65 @@ public class BinaryTree<Key extends Comparable<Key>> {
 	}
 
 	public void intarr2btree(int[] arr) {
-		this.root = new Node(null, null, null); // ¸ğµç ³ëµå »èÁ¦
+		this.root = new Node(null, null, null); // ëª¨ë“  ë…¸ë“œ ì‚­ì œ
 		Node[] save = new Node[arr.length];
-		for (int i = arr.length - 1; i > 0; i--) { // ³ëµå »ı¼ºÀ» À§ÇÑ ¹İº¹¹®
-			Node p = new Node(null, null, null); // ºó ³ëµå »ı¼º
-			p.setKey(arr[i]); // ³ëµå °ª Ãß°¡
+		for (int i = arr.length - 1; i > 0; i--) { // ë…¸ë“œ ìƒì„±ì„ ìœ„í•œ ë°˜ë³µë¬¸
+			Node p = new Node(null, null, null); // ë¹ˆ ë…¸ë“œ ìƒì„±
+			p.setKey(arr[i]); // ë…¸ë“œ ê°’ ì¶”ê°€
 
-			if (2 * i < arr.length) { // ArrayIndextOutOfBounds ¿¹¹æ
-				p.setLeft(new Node(arr[2 * i], null, null)); // ¿ŞÂÊ ³ëµå Ãß°¡
+			if (2 * i < arr.length) { // ArrayIndextOutOfBounds ì˜ˆë°©
+				p.setLeft(new Node(arr[2 * i], null, null)); // ì™¼ìª½ ë…¸ë“œ ì¶”ê°€
 			}
-			if (2 * i + 1 < arr.length) { // ArrayIndextOutOfBounds ¿¹¹æ
-				p.setRight(new Node(arr[2 * i + 1], null, null)); // ¿À¸¥ÂÊ ³ëµå Ãß°¡
+			if (2 * i + 1 < arr.length) { // ArrayIndextOutOfBounds ì˜ˆë°©
+				p.setRight(new Node(arr[2 * i + 1], null, null)); // ì˜¤ë¥¸ìª½ ë…¸ë“œ ì¶”ê°€
 			}
-			save[i] = p; // ¿Ï¼ºµÈ ³ëµå¸¦ ¹è¿­¿¡ ³ÖÀ½
+			save[i] = p; // ì™„ì„±ëœ ë…¸ë“œë¥¼ ë°°ì—´ì— ë„£ìŒ
 		}
 
-		for (int i = 1; i <= baseLog(arr.length, 2) + 1; i++) { // ³ëµå ¿¬°áÀ» À§ÇÑ ¹İº¹¹® ³ôÀÌ¸¸Å­ ¹İº¹ÇÔ ´Ü, 1ºÎÅÍ ½ÃÀÛÇÏ¹Ç·Î ³ôÀÌ + 1
-			save[i].setLeft(save[2 * i]); // ¿ŞÂÊ³ëµå ¿¬°á
-			if (2 * i + 1 < arr.length) { // ArrayIndextOutOfBounds ¿¹¹æ
-				save[i].setRight(save[2 * i + 1]); // ¿À¸¥ÂÊ³ëµå ¿¬°á
+		for (int i = 1; i <= baseLog(arr.length, 2) + 1; i++) { // ë…¸ë“œ ì—°ê²°ì„ ìœ„í•œ ë°˜ë³µë¬¸ ë†’ì´ë§Œí¼ ë°˜ë³µí•¨ ë‹¨, 1ë¶€í„° ì‹œì‘í•˜ë¯€ë¡œ ë†’ì´ + 1
+			save[i].setLeft(save[2 * i]); // ì™¼ìª½ë…¸ë“œ ì—°ê²°
+			if (2 * i + 1 < arr.length) { // ArrayIndextOutOfBounds ì˜ˆë°©
+				save[i].setRight(save[2 * i + 1]); // ì˜¤ë¥¸ìª½ë…¸ë“œ ì—°ê²°
 			}
 		}
-		setRoot(save[1]); // save ¹è¿­ÀÇ 1¹øÀÌ ·çµå ³ëµåÀÌ±â ¶§¹®¿¡ root³ëµå·Î ¼³Á¤
+		setRoot(save[1]); // save ë°°ì—´ì˜ 1ë²ˆì´ ë£¨ë“œ ë…¸ë“œì´ê¸° ë•Œë¬¸ì— rootë…¸ë“œë¡œ ì„¤ì •
 	}
 
-	public double baseLog(double x, double base) { // ³ôÀÌ log2(N + 1)¿¡¼­ ¹ØÀÌ 2ÀÎ ·Î±×¸¦ ¸¸µé±â À§ÇÑ ¸Ş¼Òµå
+	public double baseLog(double x, double base) { // ë†’ì´ log2(N + 1)ì—ì„œ ë°‘ì´ 2ì¸ ë¡œê·¸ë¥¼ ë§Œë“¤ê¸° ìœ„í•œ ë©”ì†Œë“œ
 		return Math.log10(x) / Math.log10(base);
 	}
 	
 	public LinkedList<Node> subTreeCompare(BinaryTree t) {
-		LinkedList<Node> list1 = new LinkedList<Node>(); // tA Æ®¸®ÀÇ ³ëµå¸¦ ÀúÀåÇÒ ¸®½ºÆ®
-		LinkedList<Node> list2 = new LinkedList<Node>(); // tB Æ®¸®ÀÇ ³ëµå¸¦ ÀúÀåÇÒ ¸®½ºÆ®
-		LinkedList<Node> list3 = new LinkedList<Node>(); // tA¿Í tBÆ®¸®ÀÇ °ãÄ¡´Â ³ëµå Áß tAÀÇ ³ëµå¸¸ ÀúÀåÇÏ´Â ¹è¿­ 
-		LinkedList<Node> list4 = new LinkedList<Node>(); // tA¿Í tBÆ®¸®ÀÇ °ãÄ¡´Â ³ëµå Áß tBÀÇ ³ëµå¸¸ ÀúÀåÇÏ´Â ¹è¿­ 
-		LinkedList<Node> list5 = new LinkedList<Node>(); // ÀÏÄ¡ÇÏ´Â ¼­ºêÆ®¸®°¡ ¾ø´Â °æ¿ì ¹İÈ¯ÇÒ ¸®½ºÆ®
-		Node tA = this.root; // tAÆ®¸®ÀÇ ·çÆ®³ëµå¸¦ ÀúÀå
-		Node tB = t.root; // tBÆ®¸®ÀÇ ·çÆ®³ëµå¸¦ ÀúÀå 
-		
-		addNodeToList(tA, list1); // ¸®½ºÆ®¿¡ tA Æ®¸®ÀÇ ³ëµå¸¦ ÀúÀå 
-		addNodeToList(tB, list2); // ¸®½ºÆ®¿¡ tB Æ®¸®ÀÇ ³ëµå¸¦ ÀúÀå 
-		for (int i = 0; i < list1.size(); i++) { // µÎ Æ®¸®¿¡ °°Àº ³ëµå°¡ ÀÖ´ÂÁö °Ë»ç 
-			for (int j = 0; j < list2.size(); j++) {
-				if (isEqual(list1.get(i), list2.get(j))) { // °°Àº ³ëµå°¡ ÀÖ´Ù¸é 
-					list3.add(list1.get(i)); // tAÆ®¸®ÀÇ ³ëµå´Â list3¿¡ ÀúÀå 
-					list4.add(list2.get(j)); // tBÆ®¸®ÀÇ ³ëµå´Â list4¿¡ ÀúÀå 
+		LinkedList<Node> list = new LinkedList<Node>(); // tA íŠ¸ë¦¬ì˜ ë…¸ë“œë¥¼ ì €ì¥í•  ë¦¬ìŠ¤íŠ¸
+		Queue<Node> q1 = new LinkedList<Node>();
+		Queue<Node> q2 = new LinkedList<Node>();
+		Node tA = this.root;
+		Node tB = t.root; // tBíŠ¸ë¦¬ì˜ ë£¨íŠ¸ë…¸ë“œë¥¼ ì €ì¥
+
+		q1.add(tA); 
+		for (int i = 0; i < size(this.root); i++) {
+			tA = q1.remove();
+			q2.add(t.root); // tAíŠ¸ë¦¬ì˜ ë…¸ë“œë¥¼ ê¸°ì¤€ìœ¼ë¡œ tBíŠ¸ë¦¬ì˜ ë…¸ë“œë¥¼ ëª¨ë‘ ê²€ìƒ‰í•˜ë©° ë¹„êµí• ê±°ë‹ˆê¹Œ ë§¤ ê²€ìƒ‰ë§ˆë‹¤ tBíŠ¸ë¦¬ì˜ ë£¨íŠ¸ë…¸ë“œë¥¼ ë„£ì–´ì¤Œ
+			for (int j = 0; j < size(t.root); j++) {
+				tB = q2.remove();
+				if (isEqual(tA, tB)) { // ì„œë¸ŒíŠ¸ë¦¬ê¹Œì§€ ê°™ì€ ë…¸ë“œë¼ë©´ 
+					list.add(tA); // ë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€ 
+				}
+				if (tB.getLeft() != null) { 
+					q2.add(tB.getLeft()); 
+				}
+				if (tB.getRight() != null) { 
+					q2.add(tB.getRight()); 
 				}
 			}
-		}
-		
-		if(isEqual(list3.getFirst(), list4.getFirst())) { // °ãÄ¡´Â ³ëµåµéÀÇ Å½»ö°á°ú¸¦ ºñ±³
-			return list3; // tAÆ®¸®¿¡¼­ È£ÃâÇßÀ¸¹Ç·Î tAÆ®¸®ÀÇ ³ëµå¸¦ ´ãÀº list¸¦ ¹İÈ¯ 
-		}
-		list5.add(new Node(null, null, null));
-		return list5; // ÀÏÄ¡ÇÏ´Â ¼­ºêÆ®¸®°¡ ¾ø´Â °æ¿ì 
-	}
-	
-	public void addNodeToList(Node tRoot, LinkedList list) { // ·¹º§ ¼øÈ¸¹æ½ÄÀ¸·Î ¸®½ºÆ®¿¡ ³ëµå¸¦ Ãß°¡ 
-		Queue<Node> q = new LinkedList<Node>(); // Å¥ ÀÌ¿ë
-		Node t;
-		q.add(tRoot); // ·çÆ® ³ëµå¸¦ Å¥¿¡ »ğÀÔ
-		while (!q.isEmpty()) {
-			t = q.remove(); // Å¥ °¡Àå ¾Õ¿¡ÀÖ´Â ³ëµå Á¦°Å
-			list.add(t); // ¸®½ºÆ®¿¡ ³ëµå Ãß°¡ 
-			if (t.getLeft() != null) { // Á¦°ÅµÈ ¿ŞÂÊ ÀÚ½ÄÀÌ nullÀÌ ¾Æ´Ï¸é
-				q.add(t.getLeft()); // Å¥¿¡ ¿ŞÂÊ ÀÚ½Ä »ğÀÔ
+			if (tA.getLeft() != null) { 
+				q1.add(tA.getLeft()); 
 			}
-			if (t.getRight() != null) { // Á¦°ÅµÈ ¿À¸¥ÂÊ ÀÚ½ÄÀÌ nullÀÌ ¾Æ´Ï¸é
-				q.add(t.getRight()); // Å¥¿¡ ¿À¸¥ÂÊ ÀÚ½Ä »ğÀÔ
+			if (tA.getRight() != null) { 
+				q1.add(tA.getRight()); 
 			}
 		}
+		return list;
 	}
 	
 }	
